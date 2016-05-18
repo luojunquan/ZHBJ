@@ -3,13 +3,13 @@ package com.news.zhbj.activity;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.view.Window;
 
 import com.news.zhbj.R;
 import com.news.zhbj.fragment.ContentFragment;
 import com.news.zhbj.fragment.LeftMenuFragment;
 import com.news.zhbj.slid.SlidingFragmentActivity;
 import com.news.zhbj.slid.SlidingMenu;
-
 public class MainActivity extends SlidingFragmentActivity {
     private static final String FRAGMENT_LEFT_MENU = "fragment_left_menu";
     private static final String FRAGMENT_CONTENT = "fragment_content";
@@ -17,13 +17,13 @@ public class MainActivity extends SlidingFragmentActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_main);
 
         setBehindContentView(R.layout.left_menu);// 设置侧边栏
         SlidingMenu slidingMenu = getSlidingMenu();// 获取侧边栏对象
         slidingMenu.setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);// 设置全屏触摸
-        slidingMenu.setBehindOffset(700);// 设置预留屏幕的宽度
+        slidingMenu.setBehindOffset(600);// 设置预留屏幕的宽度
 
         initFragment();
     }
@@ -43,4 +43,23 @@ public class MainActivity extends SlidingFragmentActivity {
         transaction.commit();// 提交事务
         // Fragment leftMenuFragment = fm.findFragmentByTag(FRAGMENT_LEFT_MENU);
     }
+
+    // 获取侧边栏fragment
+    public LeftMenuFragment getLeftMenuFragment() {
+        FragmentManager fm = getSupportFragmentManager();
+        LeftMenuFragment fragment = (LeftMenuFragment) fm
+                .findFragmentByTag(FRAGMENT_LEFT_MENU);
+
+        return fragment;
+    }
+
+    // 获取主页面fragment
+    public ContentFragment getContentFragment() {
+        FragmentManager fm = getSupportFragmentManager();
+        ContentFragment fragment = (ContentFragment) fm
+                .findFragmentByTag(FRAGMENT_CONTENT);
+
+        return fragment;
+    }
+
 }
