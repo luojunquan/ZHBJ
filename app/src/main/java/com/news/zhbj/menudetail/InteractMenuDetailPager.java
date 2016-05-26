@@ -10,7 +10,8 @@ import com.news.zhbj.base.BaseMenuDetailPager;
 
 /**
  * 菜单详情页-互动
- *
+ * 
+ * @author Kevin
  * 
  */
 public class InteractMenuDetailPager extends BaseMenuDetailPager {

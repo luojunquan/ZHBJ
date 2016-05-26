@@ -10,7 +10,8 @@ import com.news.zhbj.base.BaseMenuDetailPager;
 
 /**
  * 菜单详情页-专题
- *
+ * 
+ * @author Kevin
  * 
  */
 public class TopicMenuDetailPager extends BaseMenuDetailPager {
