@@ -29,7 +29,6 @@ public class TabData {
 	/**
 	 * 新闻列表对象
 	 *
-	 * @author Kevin
 	 *
 	 */
 	public class TabNewsData {
@@ -49,7 +48,6 @@ public class TabData {
 	/**
 	 * 头条新闻
 	 *
-	 * @author Kevin
 	 *
 	 */
 	public class TopNewsData {

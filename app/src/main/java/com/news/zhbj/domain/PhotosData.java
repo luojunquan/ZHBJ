@@ -7,13 +7,16 @@ import java.util.ArrayList;
  * Created by 赖上罗小贱 on 2016/5/25.
  */
 public class PhotosData {
+
     public int retcode;
     public PhotosInfo data;
-    public class PhotosInfo{
+
+    public class PhotosInfo {
         public String title;
         public ArrayList<PhotoInfo> news;
     }
-    public class PhotoInfo{
+
+    public class PhotoInfo {
         public String id;
         public String listimage;
         public String pubdate;
@@ -22,3 +25,4 @@ public class PhotosData {
         public String url;
     }
 }
+

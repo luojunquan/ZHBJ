@@ -13,7 +13,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
-import com.lidroid.xutils.BitmapUtils;
 import com.lidroid.xutils.HttpUtils;
 import com.lidroid.xutils.exception.HttpException;
 import com.lidroid.xutils.http.ResponseInfo;
@@ -24,6 +23,7 @@ import com.news.zhbj.base.BaseMenuDetailPager;
 import com.news.zhbj.domain.PhotosData;
 import com.news.zhbj.global.GlobalContants;
 import com.news.zhbj.utils.CacheUtils;
+import com.news.zhbj.utils.bitmap.MyBitmapUtils;
 
 import java.util.ArrayList;
 
@@ -116,11 +116,12 @@ public class PhotoMenuDetailPager extends BaseMenuDetailPager {
 
 	class PhotoAdapter extends BaseAdapter {
 
-		private BitmapUtils utils;
-
+//		private BitmapUtils utils;
+		private MyBitmapUtils utils;
 		public PhotoAdapter() {
-			utils = new BitmapUtils(mActivity);
-			utils.configDefaultLoadingImage(R.drawable.news_pic_default);
+//			utils = new BitmapUtils(mActivity);
+//			utils.configDefaultLoadingImage(R.drawable.news_pic_default);
+			utils = new MyBitmapUtils();
 		}
 
 		@Override

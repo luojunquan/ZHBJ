@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.View.OnTouchListener;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ImageView.ScaleType;
@@ -39,13 +40,13 @@ import com.news.zhbj.indicator.CirclePageIndicator;
 import com.news.zhbj.utils.CacheUtils;
 import com.news.zhbj.utils.PrefUtils;
 import com.news.zhbj.view.RefreshListView;
+import com.news.zhbj.view.RefreshListView.OnRefreshListener;
 
 import java.util.ArrayList;
 
 /**
  * 页签详情页
  *
- * @author Kevin
  *
  */
 public class TabDetailPager extends BaseMenuDetailPager implements
@@ -95,7 +96,7 @@ public class TabDetailPager extends BaseMenuDetailPager implements
 		lvList.addHeaderView(headerView);
 
 		// 设置下拉刷新监听
-		lvList.setOnRefreshListener(new RefreshListView.OnRefreshListener() {
+		lvList.setOnRefreshListener(new OnRefreshListener() {
 
 			@Override
 			public void onRefresh() {
@@ -114,7 +115,7 @@ public class TabDetailPager extends BaseMenuDetailPager implements
 			}
 		});
 
-		lvList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+		lvList.setOnItemClickListener(new OnItemClickListener() {
 
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view,
@@ -279,7 +280,6 @@ public class TabDetailPager extends BaseMenuDetailPager implements
 	/**
 	 * 头条新闻适配器
 	 *
-	 * @author Kevin
 	 *
 	 */
 	class TopNewsAdapter extends PagerAdapter {
@@ -311,7 +311,7 @@ public class TabDetailPager extends BaseMenuDetailPager implements
 
 			container.addView(image);
 
-			image.setOnTouchListener(new TopNewsTouchListener());//设置触摸监听
+			image.setOnTouchListener(new TopNewsTouchListener());// 设置触摸监听
 
 			return image;
 		}
@@ -325,7 +325,6 @@ public class TabDetailPager extends BaseMenuDetailPager implements
 	/**
 	 * 头条新闻的触摸监听
 	 *
-	 * @author Kevin
 	 *
 	 */
 	class TopNewsTouchListener implements OnTouchListener {
@@ -365,16 +364,18 @@ public class TabDetailPager extends BaseMenuDetailPager implements
 	/**
 	 * 新闻列表的适配器
 	 *
-	 * @author Kevin
 	 *
 	 */
 	class NewsAdapter extends BaseAdapter {
 
 		private BitmapUtils utils;
 
+		// private MyBitmapUtils utils;
+
 		public NewsAdapter() {
 			utils = new BitmapUtils(mActivity);
 			utils.configDefaultLoadingImage(R.drawable.pic_item_list_default);
+			// utils = new MyBitmapUtils();
 		}
 
 		@Override
